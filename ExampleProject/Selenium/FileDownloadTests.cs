@@ -20,6 +20,8 @@ namespace ExampleProject.Selenium
             driver.FindElement(fileDownloadBtn).Click();
             Assert.That(driver.FindElement(fileNameField).Displayed, "File is not displayed");
             driver.FindElement(fileNameField).Click();
+            //if you see test failing, try to add download wait (only after you implement IsFileDownload method)
+            // wait.Until(condition => IsFileDownloaded(filePath));
             //assert file is downloaded
         }
         //delete the downloaded file

@@ -13,7 +13,7 @@ namespace ExampleProject
         protected static readonly string url = "https://the-internet.herokuapp.com/";
         protected static readonly string preciseTextXpath = "//*[text()='{0}']";
         protected static readonly string partialTextXpath = "//*[contains(text(),'{0}')]";
-        protected static readonly string relativePathFolder = @"..\Resources\";
+        protected static readonly string relativePathFolder = @"Resources\"; //Path was fixed a little
         protected WebDriverWait wait = null;
         protected static readonly int maxWait = 10;
 
