@@ -14,12 +14,13 @@ namespace ExampleProject.Selenium
         {
             NetworkAuthenticationHandler handler = new NetworkAuthenticationHandler()
             {
-                //add credentials
+                UriMatcher = d => d.Host.Contains("url");
+                Credentials = new PasswordCredentials("admin", "admin")
             };
 
             networkInterceptor = driver.Manage().Network;
             networkInterceptor.AddAuthenticationHandler(handler);
-            //start monitoring
+            networkInterceptor.StartMnitoring();
         }
 
         [Test]
@@ -30,6 +31,11 @@ namespace ExampleProject.Selenium
             Assert.That(driver.FindElement(successAuth).Displayed, "Message is not displayed");
         }
 
-        //stop monitoring
+        [teardown]
+
+        public void [TearItDown(){
+
+        networInterceptor.StopMonitoring();
+        }
     }
 }
